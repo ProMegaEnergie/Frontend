@@ -1,0 +1,136 @@
+<div style="position: absolute;" class="bg-white p-4 w-full flex flex-wrap gap-1 justify-center">
+  <button (click)="showForm(RoleUser.Client)" class="inline-flex items-center px-4 py-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium rounded-md">
+    <img class="h-5 w-auto" src="./assets/client.svg" alt="">
+    Client
+  </button>
+
+  <button (click)="showForm(RoleUser.Societe)" class="inline-flex items-center px-4 py-2 bg-red-500 hover:bg-red-600 text-white text-sm font-medium rounded-md">
+    <img class="h-5 w-auto" src="./assets/sosiete.svg" alt="">
+    Societe
+  </button>
+
+  <button (click)="showForm(RoleUser.Agent)" class="inline-flex items-center px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-medium rounded-md">
+    <img class="h-5 w-auto" src="./assets/agent.svg" alt="">
+    Agent
+  </button>
+</div>
+
+<div id="{{RoleUser.Client}}" class="flex h-screen flex-col justify-center px-6 py-12 lg:px-8 roleUser">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <img class="mx-auto h-20 w-auto" src="./assets/ProMegaEnergie.png" alt="Your Company">
+    <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign Up Client</h2>
+  </div>
+
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form class="space-y-6" [formGroup] = "SignUpClient">
+      <div>
+        <label for="nomClient" class="block text-sm font-medium leading-6 text-gray-900">Nom</label>
+        <div class="mt-2">
+          <input id="nomClient" formControlName="nom" name="nom" type="text" autocomplete="nom" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div>
+        <label for="prenomClient" class="block text-sm font-medium leading-6 text-gray-900">Prenom</label>
+        <div class="mt-2">
+          <input id="prenomClient" formControlName="prenom" name="prenom" type="text" autocomplete="prenom" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div>
+        <label for="emailClient" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+        <div class="mt-2">
+          <input id="emailClient" formControlName="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div>
+        <label for="passwordClient" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+        <div class="mt-2">
+          <input id="passwordClient" formControlName="password" name="password" type="password" autocomplete="password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div>
+        <button type="submit" (click)="checkForm(RoleUser.Client)" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign Up</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="{{RoleUser.Societe}}" style="display: none!important;" class="flex h-screen flex-col justify-center px-6 py-12 lg:px-8 roleUser">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <img class="mx-auto h-20 w-auto" src="./assets/ProMegaEnergie.png" alt="Your Company">
+    <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign Up Societe</h2>
+  </div>
+
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form class="space-y-6" [formGroup] = "SignUpSociete">
+      <div>
+        <label for="nomSociete" class="block text-sm font-medium leading-6 text-gray-900">Nom</label>
+        <div class="mt-2">
+          <input id="nomSociete" formControlName="nom" name="nom" type="text" autocomplete="nom" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div>
+        <label for="emailSociete" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+        <div class="mt-2">
+          <input id="emailSociete" formControlName="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div>
+        <label for="passwordSociete" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+        <div class="mt-2">
+          <input id="passwordSociete" formControlName="password" name="password" type="password" autocomplete="password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div>
+        <label for="imageSociete" class="block text-sm font-medium leading-6 text-gray-900">Image</label>
+        <div class="mt-2">
+          <input id="imageSociete" (change)="onImageSelected($event)" formControlName="image" name="image" type="file" autocomplete="image" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          <img [src]="imgURL" height="200" *ngIf="imgURL">
+        </div>
+      </div>
+
+      <div>
+        <button type="submit" (click)="checkForm(RoleUser.Societe)" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign Up</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="{{RoleUser.Agent}}" style="display: none!important;" class="flex h-screen flex-col justify-center px-6 py-12 lg:px-8 roleUser">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <img class="mx-auto h-20 w-auto" src="./assets/ProMegaEnergie.png" alt="Your Company">
+    <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign Up Agent</h2>
+  </div>
+
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form class="space-y-6" [formGroup] = "SignUpAgent">
+      <div>
+        <label for="nomAgent" class="block text-sm font-medium leading-6 text-gray-900">Nom</label>
+        <div class="mt-2">
+          <input id="nomAgent" formControlName="nom" name="nom" type="text" autocomplete="nom" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div>
+        <label for="prenomAgent" class="block text-sm font-medium leading-6 text-gray-900">Prenom</label>
+        <div class="mt-2">
+          <input id="prenomAgent" formControlName="prenom" name="prenom" type="text" autocomplete="prenom" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div>
+        <label for="emailAgent" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+        <div class="mt-2">
+          <input id="emailAgent" formControlName="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div>
+        <label for="passwordAgent" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+        <div class="mt-2">
+          <input id="passwordAgent" formControlName="password" name="password" type="password" autocomplete="password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        </div>
+      </div>
+
+      <div>
+        <button type="submit" (click)="checkForm(RoleUser.Agent)" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign Up</button>
+      </div>
+    </form>
+  </div>
+</div>

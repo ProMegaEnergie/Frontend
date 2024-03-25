@@ -3,6 +3,8 @@ import {HttpClient} from "@angular/common/http";
 import {GlobalAppService} from "../Global/global-app.service";
 import {RoleUser} from "../../Model/Enum/role-user";
 import {Agent} from "../../Model/Entity/agent";
+import {User} from "../../Model/Entity/user";
+import {Activate} from "../../Model/Entity/activate";
 
 @Injectable({
   providedIn: 'root'
@@ -25,11 +27,41 @@ export class UserService {
     return this.http.get(this.apiUrl+"user/"+roleUser+"/"+id);
   }
 
-  saveUser(agent: Agent, roleUser: RoleUser) {
-    return this.http.put(this.apiUrl+"update/"+roleUser,agent);
+  saveUser(user: any, roleUser: RoleUser) {
+    return this.http.put(this.apiUrl+"update/"+roleUser,user);
   }
 
-  addUser(agent: Agent, roleUser: RoleUser) {
-    return this.http.post(this.apiUrl+"create/"+roleUser,agent);
+  addUser(user: any, roleUser: RoleUser) {
+    return this.http.post(this.apiUrl+"create/"+roleUser,user);
+  }
+
+  login(user : User) {
+    return this.http.post(this.apiUrl+"login",user);
+  }
+  logout() {
+    localStorage.removeItem('idUser');
+    localStorage.removeItem('roleUser');
+    localStorage.removeItem('email');
+    window.location.href = '';
+  }
+
+  singUp(user: any) {
+    return this.http.post(this.apiUrl+"signUp",user);
+  }
+
+  activate(activate: Activate) {
+    return this.http.put(this.apiUrl+"activateAccount",activate);
+  }
+
+  sendCodeForgotPassword(email: string) {
+    return this.http.get(this.apiUrl+"forgetPassword/"+email);
+  }
+
+  updatePassword(checkCode: {
+    code: any;
+    roleUser: any;
+    email: any
+  }, password: string) {
+    return this.http.put(this.apiUrl+"forgetPassword/"+password,checkCode)
   }
 }

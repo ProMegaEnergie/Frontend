@@ -2,23 +2,26 @@ import {Component, OnInit} from '@angular/core';
 import {RoleUser} from "../../Model/Enum/role-user";
 
 @Component({
-  selector: 'app-navbar-admin',
-  templateUrl: './navbar-admin.component.html',
-  styleUrls: ['./navbar-admin.component.css']
+  selector: 'app-navbar-client',
+  templateUrl: './navbar-client.component.html',
+  styleUrls: ['./navbar-client.component.css']
 })
-export class NavbarAdminComponent implements OnInit{
+export class NavbarClientComponent implements OnInit{
+  idUser: any = localStorage.getItem('idUser');
   roleUser : RoleUser = localStorage.getItem('roleUser') as RoleUser;
+  //idUser: any = 0;
   //roleUser : RoleUser = RoleUser.Admin
 
   ngOnInit() {
-    if (this.roleUser == RoleUser.Agent) {
+    if (this.roleUser == RoleUser.Admin) {
+      window.location.href = '/AD/Agent';
+    } else if (this.roleUser == RoleUser.Agent) {
       window.location.href = '/AG/Dashboard';
     } else if (this.roleUser == RoleUser.Societe) {
       window.location.href = '/SO/Dashboard';
-    } else if (this.roleUser == RoleUser.Client || this.roleUser == null){
-      window.location.href = '';
     }
   }
+
   showNav() {
     const navbarDefault = document.getElementById('navbar-default');
     //@ts-ignore

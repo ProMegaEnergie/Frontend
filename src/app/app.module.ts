@@ -9,6 +9,12 @@ import { TabelAgentComponent } from './Components/tabel-agent/tabel-agent.compon
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { HomeComponent } from './Client/home/home.component';
+import {NavbarClientComponent} from "./Components/navbar-client/navbar-client.component";
+import { LoginComponent } from './Auto/login/login.component';
+import { SignUPComponent } from './Auto/sign-up/sign-up.component';
+import { LogoutComponent } from './Auto/logout/logout.component';
+import { ValidationComponent } from './Auto/validation/validation.component';
+import { ForgotPasswordComponent } from './Auto/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +23,20 @@ import { HomeComponent } from './Client/home/home.component';
     AgentComponent,
     TabelAgentComponent,
     HomeComponent,
+    NavbarClientComponent,
+    LoginComponent,
+    SignUPComponent,
+    LogoutComponent,
+    ValidationComponent,
+    ForgotPasswordComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+      BrowserModule,
+      AppRoutingModule,
+      HttpClientModule,
+      FormsModule,
+      ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
