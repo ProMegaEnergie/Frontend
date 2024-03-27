@@ -1,0 +1,24 @@
+#editeClient,
+#addClient{
+  position: absolute;
+  z-index: 1;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  width: 100vw;
+}
+#editeClient input ,
+#addClient input{
+  color: #4CAF50;
+}
+#editeClient span,
+#addClient span{
+  color: #4CAF50;
+  background-color: #e5e7eb;
+  border-radius: 100%;
+}

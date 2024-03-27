@@ -1,0 +1,18 @@
+<!-- component -->
+<div class="main flex border rounded-full overflow-hidden m-4 select-none" style="width: 362px">
+  <div class="title py-3 my-auto px-5 bg-green-500 text-white text-sm font-semibold mr-3">Select</div>
+  <label class="flex radio p-2 cursor-pointer" (click)="selectChoice(choice1)">
+    <input checked class="my-auto transform scale-125" type="radio" name="sfg" />
+    <div class="title px-2">{{ choice1 }}</div>
+  </label>
+
+  <label class="flex radio p-2 cursor-pointer" (click)="selectChoice(choice2)">
+    <input class="my-auto transform scale-125" type="radio" name="sfg">
+    <div class="title px-2">{{ choice2 }}</div>
+  </label>
+
+  <label class="flex radio p-2 cursor-pointer" (click)="selectChoice(choice3)">
+    <input class="my-auto transform scale-125" type="radio" name="sfg">
+    <div class="title px-2">{{ choice3 }}</div>
+  </label>
+</div>

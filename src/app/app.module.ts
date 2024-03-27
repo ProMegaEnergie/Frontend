@@ -15,6 +15,16 @@ import { SignUPComponent } from './Auto/sign-up/sign-up.component';
 import { LogoutComponent } from './Auto/logout/logout.component';
 import { ValidationComponent } from './Auto/validation/validation.component';
 import { ForgotPasswordComponent } from './Auto/forgot-password/forgot-password.component';
+import { ClientComponent } from './Admin/client/client.component';
+import { SocieteComponent } from './Admin/societe/societe.component';
+import { TableClientComponent } from './Components/table-client/table-client.component';
+import { TableSocieteComponent } from './Components/table-societe/table-societe.component';
+import { AgentDashboardComponent } from './Agent/dashboard/agent-dashboard.component';
+import { NavbarAgentComponent } from './Components/navbar-agent/navbar-agent.component';
+import { NavbarSocieteComponent } from './Components/navbar-societe/navbar-societe.component';
+import { CardStatistiqueComponent } from './Components/card-statistique/card-statistique.component';
+import { BatterieComponent } from './Agent/batterie/batterie.component';
+import { SelectBatterieOrVoitureComponent } from './Components/select-batterie-or-voiture/select-batterie-or-voiture.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +38,17 @@ import { ForgotPasswordComponent } from './Auto/forgot-password/forgot-password.
     SignUPComponent,
     LogoutComponent,
     ValidationComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ClientComponent,
+    SocieteComponent,
+    TableClientComponent,
+    TableSocieteComponent,
+    AgentDashboardComponent,
+    NavbarAgentComponent,
+    NavbarSocieteComponent,
+    CardStatistiqueComponent,
+    BatterieComponent,
+    SelectBatterieOrVoitureComponent
   ],
     imports: [
       BrowserModule,
