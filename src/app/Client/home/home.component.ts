@@ -20,21 +20,22 @@ export class HomeComponent  implements OnInit {
     if (idClient == null) {
       alert('Vous devez vous connecter pour acheter une voiture')
       window.location.href = 'User/login';
-    }
-    const idVoiture = voiture.id;
-    const achatStatus = {
-      id: idVoiture,
-      voiture: {
-        id: idVoiture
-      },
-      client: {
-        //@ts-ignore
-        id: parseInt(idClient)
+    }else {
+      const idVoiture = voiture.id;
+      const achatStatus = {
+        id: idVoiture,
+        voiture: {
+          id: idVoiture
+        },
+        client: {
+          //@ts-ignore
+          id: parseInt(idClient)
+        }
       }
+      this.voitureService.achatVoiture(achatStatus).subscribe((data: any) => {
+        this.getVoituresForBuy();
+      })
     }
-    this.voitureService.achatVoiture(achatStatus).subscribe((data: any) => {
-      this.getVoituresForBuy();
-    })
   }
   getVoituresForBuy() {
     this.voitureService.readVoituresByAchatStatus().subscribe((data: any) => {
