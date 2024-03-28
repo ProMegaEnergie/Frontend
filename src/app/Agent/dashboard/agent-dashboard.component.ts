@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AppComponent} from "../../app.component";
 import {BatterieService} from "../../Services/Batterie/batterie.service";
+import {AchatStatus} from "../../Model/Enum/achat-status";
 
 @Component({
   selector: 'app-dashboard',
@@ -38,7 +39,7 @@ export class AgentDashboardComponent implements OnInit {
     this.batterieService.readBatteriesByIdAgent(idAgent).subscribe((data:any) => {
       this.statistique1 = data.length;
       for (let i = 0; i < data.length; i++) {
-        if (data[i].achatStatus === 'NotPayed') {
+        if (data[i].achatStatus === AchatStatus.NotPayed) {
           this.statistique2++;
         } else {
           this.statistique3++;

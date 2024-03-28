@@ -25,6 +25,13 @@ import { NavbarSocieteComponent } from './Components/navbar-societe/navbar-socie
 import { CardStatistiqueComponent } from './Components/card-statistique/card-statistique.component';
 import { BatterieComponent } from './Agent/batterie/batterie.component';
 import { SelectBatterieOrVoitureComponent } from './Components/select-batterie-or-voiture/select-batterie-or-voiture.component';
+import { TabelBatterieComponent } from './Components/tabel-batterie/tabel-batterie.component';
+import { SocieteDashboardComponent } from './Societe/dashboard/societe-dashboard.component';
+import { StockBatterieComponent } from './Societe/stock-batterie/stock-batterie.component';
+import { StoreBatterieComponent } from './Societe/store-batterie/store-batterie.component';
+import { VoitureComponent } from './Societe/voiture/voiture.component';
+import { ProductCardComponent } from './Components/product-card/product-card.component';
+import { TableVoitureComponent } from './Components/table-voiture/table-voiture.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +55,14 @@ import { SelectBatterieOrVoitureComponent } from './Components/select-batterie-o
     NavbarSocieteComponent,
     CardStatistiqueComponent,
     BatterieComponent,
-    SelectBatterieOrVoitureComponent
+    SelectBatterieOrVoitureComponent,
+    TabelBatterieComponent,
+    SocieteDashboardComponent,
+    StockBatterieComponent,
+    StoreBatterieComponent,
+    VoitureComponent,
+    ProductCardComponent,
+    TableVoitureComponent
   ],
     imports: [
       BrowserModule,

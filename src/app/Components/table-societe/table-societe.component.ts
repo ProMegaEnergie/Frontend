@@ -53,10 +53,10 @@ export class TableSocieteComponent  implements OnInit {
     editeSociete.setAttribute('style', 'display: block !important');
   }
   updateSociete() {
-    this.hideForm();
     this.userService.saveUser(this.formEditSociete.value,RoleUser.Societe).subscribe((data:any)=>{
       this.getAllSocietes();
     })
+    this.hideForm();
   }
 
   userFile : any;

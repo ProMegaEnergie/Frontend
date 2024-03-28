@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {AppComponent} from "../../app.component";
 import {BatterieService} from "../../Services/Batterie/batterie.service";
 import {Batterie} from "../../Model/Entity/batterie";
+import {AchatStatus} from "../../Model/Enum/achat-status";
+import {RoleUser} from "../../Model/Enum/role-user";
 
 @Component({
   selector: 'app-batterie',
@@ -10,15 +12,12 @@ import {Batterie} from "../../Model/Entity/batterie";
 })
 export class BatterieComponent implements OnInit {
   choice1: string = 'All';
-  choice2: string = 'NotPayed';
-  choice3: string = 'Payed';
+  choice2: string = AchatStatus.NotPayed;
+  choice3: string = AchatStatus.Payed;
 
-  selectBatteries(choice: string) {
-    console.log(choice)
-  }
   constructor(private appComponent: AppComponent, private batterieService: BatterieService) { }
 
-  batterie: Array<Batterie> = []
+  batteries: Array<Batterie> = []
 
   ngOnInit() {
     this.appComponent.changeLiActive('Batterie')
@@ -31,19 +30,21 @@ export class BatterieComponent implements OnInit {
     switch (selectedChoice) {
       case 'All':
         this.batterieService.readBatteriesByIdAgent(idAgent).subscribe((data: any) => {
-          this.batterie = data
+          this.batteries = data
         })
         break;
-      case 'NotPayed':
+      case AchatStatus.NotPayed:
         this.batterieService.readBatteriesByIdAgent(idAgent).subscribe((data: any) => {
-          this.batterie = data.filter((batterie: any) => batterie.achatStatus === 'NotPayed')
+          this.batteries = data.filter((batterie: Batterie) => batterie.achatStatus === AchatStatus.NotPayed)
         })
         break;
-      case 'Payed':
+      case AchatStatus.Payed:
         this.batterieService.readBatteriesByIdAgent(idAgent).subscribe((data: any) => {
-          this.batterie = data.filter((batterie: any) => batterie.achatStatus === 'Payed')
+          this.batteries = data.filter((batterie: Batterie) => batterie.achatStatus === AchatStatus.Payed)
         })
         break;
     }
   }
+
+  protected readonly RoleUser = RoleUser;
 }

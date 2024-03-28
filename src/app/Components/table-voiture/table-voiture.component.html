@@ -1,0 +1,131 @@
+<div class="flex justify-center" style="max-height: 90vh;">
+  <div class=" container p-6 overflow-scroll px-0">
+    <div class="flex justify-between items-center">
+      <h1 class="text-2xl font-sans font-bold text-blue-gray-900">Voitures</h1>
+      <button (click)="addVoiture()" class="p-4 bg-blue-500 text-white rounded-md">Add Voiture</button>
+    </div>
+    <table class="mt-4 w-full min-w-max table-auto text-left">
+      <thead>
+      <tr>
+        <th class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50">
+          <p class="antialiased font-sans text-sm text-blue-gray-900 flex items-center justify-between gap-2 font-normal leading-none opacity-70">Voiture</p>
+        </th>
+        <th class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50">
+          <p class="antialiased font-sans text-sm text-blue-gray-900 flex items-center justify-between gap-2 font-normal leading-none opacity-70">Prix</p>
+        </th>
+        <th class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50">
+          <p class="antialiased font-sans text-sm text-blue-gray-900 flex items-center justify-between gap-2 font-normal leading-none opacity-70">Achat Status</p>
+        </th>
+        <th class="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50">
+          <p class="antialiased font-sans text-sm text-blue-gray-900 flex items-center justify-between gap-2 font-normal leading-none opacity-70">Actions</p>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let voiture of voitures">
+        <td class="p-4 border-b border-blue-gray-50">
+          <div class="flex items-center gap-3">
+            <img src="{{ voiture.image }}" alt="John Michael" class="inline-block relative object-cover object-center !rounded-full w-9 h-9 rounded-md">
+            <div class="flex flex-col">
+              <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">Matrecule: {{voiture.matrecule}}</p>
+              <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal opacity-70">Nom De Batterie: {{voiture.batterie.nom}}</p>
+              <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal opacity-70">Vis De Batterie: {{voiture.batterie.vis}}</p>
+            </div>
+          </div>
+        </td>
+        <td class="p-4 border-b border-blue-gray-50">
+          <div class="w-max">
+            <div class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal" style="opacity: 1;">
+              <span>{{ voiture.batterie.prix }} DH</span>
+            </div>
+          </div>
+        </td>
+        <td class="p-4 border-b border-blue-gray-50">
+          <div class="w-max">
+            <div *ngIf="voiture.achatStatus == AchatStatus.Payed" class="relative grid items-center font-sans font-bold uppercase whitespace-nowrap select-none bg-green-500/20 text-green-600 py-1 px-2 text-xs rounded-md" style="opacity: 1;">
+              <span class="">Payed</span>
+            </div>
+            <div *ngIf="voiture.achatStatus == AchatStatus.NotPayed" class="relative grid items-center font-sans font-bold uppercase whitespace-nowrap select-none bg-red-500/20 text-red-700 py-1 px-2 text-xs rounded-md" style="opacity: 1;">
+              <span>Not Payed</span>
+            </div>
+          </div>
+        </td>
+        <td class="p-4 border-b border-blue-gray-50">
+          <button *ngIf="voiture.achatStatus == AchatStatus.NotPayed"  (click)="editVoiture(voiture)" class="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-blue-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30" type="button">
+              <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2" title="edit">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-4 w-4">
+                  <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z"></path>
+                </svg>
+              </span>
+          </button>
+          <button *ngIf="voiture.achatStatus == AchatStatus.NotPayed"  (click)="deleteVoiture(voiture)" class="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-blue-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30" type="button">
+              <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2" title="delete">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-4 w-4">
+                  <path d="M3.5 6.5v13a1 1 0 001 1h14a1 1 0 001-1v-13h-16zm2 1h12v12h-12v-12zm5 3a1 1 0 011 1v6a1 1 0 01-2 0v-6a1 1 0 011-1zm4 0a1 1 0 011 1v6a1 1 0 01-2 0v-6a1 1 0 011-1z"></path>
+                </svg>
+              </span>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="addVoiture" style="display: none">
+    <span (click)="hideForm()"><button>X</button></span>
+
+    <form [formGroup]="formAddVoiture">
+      <div class="flex flex-col gap-4 p-6">
+        <div class="flex flex-col gap-2">
+          <label for="matreculeAdd" class="text-sm font-sans font-normal text-blue-gray-900">Matrecule</label>
+          <input type="text"  formControlName="matrecule" id="matreculeAdd" name="matrecule" class="p-4 border border-blue-gray-200 rounded-md">
+        </div>
+        <div class="flex flex-col gap-2">
+          <label for="prixAdd" class="text-sm font-sans font-normal text-blue-gray-900">Prix</label>
+          <input type="number" formControlName="prix" id="prixAdd" name="prix" class="p-4 border border-blue-gray-200 rounded-md">
+        </div>
+        <div class="flex flex-col gap-2">
+          <label for="batterieAdd" class="text-sm font-sans font-normal text-blue-gray-900">Batterie</label>
+          <select formControlName="batterieId" id="batterieAdd" name="batterieId" class="p-4 border border-blue-gray-200 rounded-md text-green-800">
+            <option value="" disabled selected>Select Batterie</option>
+            <option *ngFor="let batterie of batteries" [value]="batterie.batterie.id">{{batterie.batterie.nom}}</option>
+          </select>
+        </div>
+        <div class="flex flex-col gap-2">
+          <label for="imageAdd" class="text-sm font-sans font-normal text-blue-gray-900">Image</label>
+          <input id="imageAdd" (change)="onImageSelected($event)" formControlName="image" name="image" type="file" autocomplete="image" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          <img [src]="imgURL" height="auto" width="200px" *ngIf="imgURL">
+        </div>
+        <div class="flex flex-col gap-2">
+          <button (click)="AddSaveVoiture()" type="submit" class="p-4 bg-blue-500 text-white rounded-md">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div id="editeVoiture" style="display: none">
+    <span (click)="hideForm()"><button>X</button></span>
+
+    <form [formGroup]="formEditVoiture">
+      <div class="flex flex-col gap-4 p-6">
+        <input type="hidden" formControlName="id"  id="idEdit" name="id">
+        <input type="hidden" formControlName="batterieId"  id="batterieId" name="batterieId">
+        <input type="hidden" formControlName="agentId"  id="agentId" name="agentId">
+        <div class="flex flex-col gap-2">
+          <label for="matreculeEdit" class="text-sm font-sans font-normal text-blue-gray-900">Matrecule</label>
+          <input type="text" formControlName="matrecule" id="matreculeEdit" name="matrecule" class="p-4 border border-blue-gray-200 rounded-md">
+        </div>
+        <div class="flex flex-col gap-2">
+          <label for="prixEdit" class="text-sm font-sans font-normal text-blue-gray-900">Prix</label>
+          <input type="number"  formControlName="prix" id="prixEdit" name="prix" class="p-4 border border-blue-gray-200 rounded-md">
+        </div>
+        <div class="flex flex-col gap-2">
+          <label for="imageEdite" class="text-sm font-sans font-normal text-blue-gray-900">Image</label>
+          <input id="imageEdite" (change)="onImageSelected($event)" formControlName="image" name="image" type="file" autocomplete="image" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          <img [src]="imgURL" height="auto" width="200px" *ngIf="imgURL">
+        </div>
+        <div class="flex flex-col gap-2">
+          <button (click)="updateVoiture()" type="submit" class="p-4 bg-blue-500 text-white rounded-md">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

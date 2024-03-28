@@ -11,11 +11,16 @@ import {ValidationComponent} from "./Auto/validation/validation.component";
 import {ForgotPasswordComponent} from "./Auto/forgot-password/forgot-password.component";
 import {AgentDashboardComponent} from "./Agent/dashboard/agent-dashboard.component";
 import {BatterieComponent} from "./Agent/batterie/batterie.component";
+import {SocieteDashboardComponent} from "./Societe/dashboard/societe-dashboard.component";
+import {StockBatterieComponent} from "./Societe/stock-batterie/stock-batterie.component";
+import {StoreBatterieComponent} from "./Societe/store-batterie/store-batterie.component";
+import {VoitureComponent} from "./Societe/voiture/voiture.component";
 
 const routes: Routes = [
   //Agent
   { path: 'AG/Dashboard', component: AgentDashboardComponent},
   { path: 'AG/Batterie', component: BatterieComponent},
+
   //Client
   { path: '', component: HomeComponent},
   { path: 'Home', component: HomeComponent},
@@ -28,6 +33,10 @@ const routes: Routes = [
   { path: 'AD/Societe', component: SocieteComponent},
 
   //Societe
+  { path: 'SO/Dashboard', component: SocieteDashboardComponent},
+  { path: 'SO/StockBatterie', component: StockBatterieComponent},
+  { path: 'SO/StoreBatterie', component: StoreBatterieComponent},
+  { path: 'SO/Voiture', component: VoitureComponent},
 
   //User
   { path: 'User/logout', component: LogoutComponent},

@@ -1,0 +1,10 @@
+<app-navbar-societe></app-navbar-societe>
+<section class="flex justify-center mt-10">
+  <input id="nomInput" (input)="search()" placeholder="Search By Name" class="border-2 transition duration-500 placeholder-red-400 focus:placeholder-transparent border-red-400 w-4/12 py-2 text-center text-red-400 bg-transparent rounded-md focus:outline-none ">
+  &nbsp;&nbsp;
+  <input id="prixInput" (input)="search()" placeholder="Search By price" class="border-2 transition duration-500 placeholder-red-400 focus:placeholder-transparent border-red-400 w-4/12 py-2 text-center text-red-400 bg-transparent rounded-md focus:outline-none ">
+</section>
+<div class="flex flex-wrap justify-center gap-2">
+  <span *ngIf="batteries.length==0">No Batterie Disponible</span>
+  <app-product-card *ngFor="let batterie of batteries" [product] = "batterie" [nom]="batterie.nom" [vix]="batterie.vis" [prix]="batterie.prix" [imageProduct]="batterie.image" (buyProducts)="buyProduct(batterie)"></app-product-card>
+</div>

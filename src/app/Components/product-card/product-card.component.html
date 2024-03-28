@@ -1,0 +1,15 @@
+<div class="py-6">
+  <div class="flex max-w-md bg-white shadow-lg rounded-lg overflow-hidden">
+    <div class="w-1/3 bg-cover">
+      <img style="height:200px !important; width: 200px;" src="{{imageProduct}}" alt="product" class="w-full h-full">
+    </div>
+    <div class="w-2/3 p-4">
+      <h1 class="text-gray-900 font-bold text-2xl">{{ nom }}</h1>
+      <p class="mt-2 text-gray-600 text-sm">{{ vix }}</p>
+      <div class="flex item-center justify-between mt-3">
+        <h1 class="text-gray-700 font-bold text-xl">{{ prix }}DH</h1>
+        <button (click)="buyProduct(product)" class="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">Buy Product</button>
+      </div>
+    </div>
+  </div>
+</div>
