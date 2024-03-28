@@ -57,7 +57,7 @@ export class StoreBatterieComponent implements OnInit{
       choice = 'prix_nom';
       search = prixInput + "," + nomInput;
     }
-    const searchArray = search.replace('¤','%20');
+    const searchArray = search.replace(' ','%20');
 
     this.batterieService.readBatteriesByNomAndPrix(choice, searchArray).subscribe((data: any) => {
       this.batteries = data

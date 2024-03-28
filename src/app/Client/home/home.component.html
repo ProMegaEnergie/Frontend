@@ -1,2 +1,10 @@
 <app-navbar-client></app-navbar-client>
-<p>home works!</p>
+<section class="flex justify-center mt-10">
+  <input id="matreculeInput" (input)="search()" placeholder="Search By Matrecule" class="border-2 transition duration-500 placeholder-red-400 focus:placeholder-transparent border-red-400 w-4/12 py-2 text-center text-red-400 bg-transparent rounded-md focus:outline-none ">
+  &nbsp;&nbsp;
+  <input id="prixInput" (input)="search()" placeholder="Search By price" class="border-2 transition duration-500 placeholder-red-400 focus:placeholder-transparent border-red-400 w-4/12 py-2 text-center text-red-400 bg-transparent rounded-md focus:outline-none ">
+</section>
+<div class="flex flex-wrap justify-center gap-2">
+  <span *ngIf="voitures.length==0">No Car Disponible</span>
+  <app-product-card *ngFor="let voiture of voitures" [product] = "voiture" [nom]="voiture.matrecule" [vix]="voiture.batterie.vis" [prix]="voiture.prix" [imageProduct]="voiture.image" [nom2]="voiture.batterie.nom" (buyProducts)="buyProduct(voiture)"></app-product-card>
+</div>

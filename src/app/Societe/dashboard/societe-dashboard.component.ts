@@ -3,6 +3,7 @@ import {AppComponent} from "../../app.component";
 import {BatterieService} from "../../Services/Batterie/batterie.service";
 import {StatusBattery} from "../../Model/Enum/status-battery";
 import {VoitureService} from "../../Services/Voiture/voiture.service";
+import {AchatStatus} from "../../Model/Enum/achat-status";
 
 @Component({
   selector: 'app-societe-dashboard',
@@ -64,7 +65,7 @@ export class SocieteDashboardComponent implements OnInit{
     this.voitureService.readVoitureByIdSociete(idSociete).subscribe((data:any) => {
       this.statistique4 = data.length;
       for (let i = 0; i < data.length; i++) {
-        if (data[i].isAchete) {
+        if (data[i].achatStatus ==AchatStatus.Payed) {
           this.statistique5++;
         } else {
           this.statistique6++;

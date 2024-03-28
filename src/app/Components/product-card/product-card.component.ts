@@ -11,6 +11,7 @@ export class ProductCardComponent {
   @Input() prix: number = 0;
   @Input() imageProduct: string = '';
   @Input() product: any;
+  @Input() nom2: string = '';
 
   @Output() buyProducts = new EventEmitter<string>();
 

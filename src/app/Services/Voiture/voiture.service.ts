@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {GlobalAppService} from "../Global/global-app.service";
 import {HttpClient} from "@angular/common/http";
 import {Voiture} from "../../Model/Entity/voiture";
+import {AchatStatus} from "../../Model/Enum/achat-status";
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +27,16 @@ export class VoitureService {
 
   addVoiture(voiture: Voiture) {
     return this.http.post(this.apiUrl + "createVoiture", voiture);
+  }
+
+  achatVoiture(achatStatus: { voiture: { id: number }; client: { id: number } }) {
+    return this.http.post(this.apiUrl + "acheterVoiture", achatStatus);
+  }
+  readVoituresByAchatStatus() {
+    return this.http.get(this.apiUrl + "readVoitures/"+AchatStatus.NotPayed);
+  }
+
+  readVoituresByMatreculeAndPrix(choice: string, searchArray: string) {
+    return this.http.get(this.apiUrl + "cherecherVoitures/"+choice+"/"+searchArray);
   }
 }
